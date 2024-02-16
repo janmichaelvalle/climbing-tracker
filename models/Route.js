@@ -25,8 +25,12 @@ const routeSchema = new mongoose.Schema({
   setter: {
      type: mongoose.Schema.Types.ObjectId, 
      ref: "User",
-     required: true,
     },
+  // If route is active already or not
+  isActive: {
+    type: Boolean,
+    default: true
+  },
   //  Array of user IDs who have completed this route
   completed_by: [
     { 

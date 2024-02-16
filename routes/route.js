@@ -4,9 +4,11 @@ const {verify, verifyAdmin} = require("../auth");
 
 const router = express.Router();
 
-router.post("/", routeController.addRoute);
+router.post("/add", routeController.addRoute);
 
+router.patch("/update/:routeId", routeController.updateRoute)
 
+router.patch("/archive/:routeId", routeController.archiveRoute)
 
 
 

@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(cors());
 
 const port = 4000;
-mongoose.connect(process.env.URI)
+mongoose.connect("mongodb+srv://janmichaelvalle:admin@cluster0.ei4pysk.mongodb.net/climbing-tracker?retryWrites=true&w=majority")
 mongoose.connection.once('open', () => console.log('Now connected to MongoDB Atlas.'));
 
 // *USE ROUTES
