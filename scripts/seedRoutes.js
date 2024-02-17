@@ -10,99 +10,37 @@ mongoose.connect("mongodb+srv://janmichaelvalle:admin@cluster0.ei4pysk.mongodb.n
 .then(() => {
   console.log('Connected to MongoDB');
 
-  const dummyRoutes = [
-    {
-      grade: '1pie',
-      type: 'Top Rope',
-      color: 'Red',
-      location: 'Zone A, Wall 1'
-    },
-    {
-      grade: '2pie',
-      type: 'Boulder',
-      color: 'Blue',
-      location: 'Zone B, Wall 2'
-    },
-    {
-      grade: '3pie',
-      type: 'Lead',
-      color: 'Green',
-      location: 'Zone C, Wall 3'
-    },
-    {
-      grade: '4pie',
-      type: 'Top Rope',
-      color: 'Yellow',
-      location: 'Zone D, Wall 4'
-    },
-    {
-      grade: '5pie',
-      type: 'Boulder',
-      color: 'Purple',
-      location: 'Zone E, Wall 5'
-    },
-    {
-      grade: '1pie',
-      type: 'Lead',
-      color: 'Orange',
-      location: 'Zone F, Wall 6'
-    },
-    {
-      grade: '2pie',
-      type: 'Top Rope',
-      color: 'Pink',
-      location: 'Zone G, Wall 7'
-    },
-    {
-      grade: '3pie',
-      type: 'Boulder',
-      color: 'Cyan',
-      location: 'Zone H, Wall 8'
-    },
-    {
-      grade: '4pie',
-      type: 'Lead',
-      color: 'Magenta',
-      location: 'Zone I, Wall 9'
-    },
-    {
-      grade: '5pie',
-      type: 'Top Rope',
-      color: 'LightGreen',
-      location: 'Zone J, Wall 10'
-    },
-    {
-      grade: '1pie',
-      type: 'Boulder',
-      color: 'LightBlue',
-      location: 'Zone K, Wall 11'
-    },
-    {
-      grade: '2pie',
-      type: 'Lead',
-      color: 'LightYellow',
-      location: 'Zone L, Wall 12'
-    },
-    {
-      grade: '3pie',
-      type: 'Top Rope',
-      color: 'LightPurple',
-      location: 'Zone M, Wall 13'
-    },
-    {
-      grade: '4pie',
-      type: 'Boulder',
-      color: 'LightCyan',
-      location: 'Zone N, Wall 14'
-    },
-    {
-      grade: '5pie',
-      type: 'Lead',
-      color: 'LightMagenta',
-      location: 'Zone O, Wall 15'
-    },
-    // Add more dummy routes as needed
-  ];
+  const dummyRoutes = 
+  [{"grade":"5pie","color":"white","type":"toprope","location":"C01"},
+  {"grade":"3pie","color":"brown","type":"toprope","location":"C02"},
+  {"grade":"4pie","color":"blue","type":"lead","location":"C03"},
+  {"grade":"5pie","color":"brown","type":"toprope","location":"C04"},
+  {"grade":"1pie","color":"purple","type":"bouldering","location":"C05"},
+  {"grade":"4pie","color":"brown","type":"toprope","location":"C06"},
+  {"grade":"6pie","color":"blue","type":"toprope","location":"C07"},
+  {"grade":"1pie","color":"red","type":"lead","location":"C08"},
+  {"grade":"4pie","color":"pink","type":"lead","location":"C09"},
+  {"grade":"6pie","color":"pink","type":"lead","location":"C10"},
+  {"grade":"3pie","color":"purple","type":"bouldering","location":"C01"},
+  {"grade":"1pie","color":"purple","type":"lead","location":"C02"},
+  {"grade":"3pie","color":"yellow","type":"lead","location":"C03"},
+  {"grade":"5pie","color":"white","type":"lead","location":"C04"},
+  {"grade":"2pie","color":"yellow","type":"lead","location":"C05"},
+  {"grade":"4pie","color":"yellow","type":"lead","location":"C06"},
+  {"grade":"1pie","color":"pink","type":"bouldering","location":"C07"},
+  {"grade":"1pie","color":"purple","type":"toprope","location":"C08"},
+  {"grade":"4pie","color":"white","type":"toprope","location":"C09"},
+  {"grade":"5pie","color":"purple","type":"bouldering","location":"C10"},
+  {"grade":"1pie","color":"white","type":"lead","location":"C01"},
+  {"grade":"4pie","color":"red","type":"toprope","location":"C02"},
+  {"grade":"6pie","color":"black","type":"toprope","location":"C03"},
+  {"grade":"2pie","color":"yellow","type":"lead","location":"C04"},
+  {"grade":"4pie","color":"red","type":"toprope","location":"C05"},
+  {"grade":"4pie","color":"purple","type":"bouldering","location":"C06"},
+  {"grade":"4pie","color":"red","type":"bouldering","location":"C07"},
+  {"grade":"4pie","color":"red","type":"toprope","location":"C08"},
+  {"grade":"2pie","color":"black","type":"toprope","location":"C09"},
+  {"grade":"1pie","color":"white","type":"bouldering","location":"C10"}]
   
 
   // Insert dummy routes into the database

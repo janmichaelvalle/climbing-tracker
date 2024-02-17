@@ -17,14 +17,6 @@ const climbingHistorySchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  // Time taken to climb the route (optional)
-  time: {
-    type: String,
-  },
-  // Difficulty level of the route (e.g., beginner, intermediate, advanced)
-  difficulty: {
-    type: String,
-  },
   // Optional comments or notes about the climb
   comments: {
     type: String,
@@ -33,6 +25,10 @@ const climbingHistorySchema = new mongoose.Schema({
   user_rating: {
     type: Number,
   },
+  /* Indicates if the route is being projected
+    ChatGPT: The status field is added to represent the indication of whether the user has finished the route ('finished') or is currently projecting it ('projecting'). It's defined as a string with an enum constraint, ensuring that only specific values are allowed ('finished' or 'projecting'). The default value is set to 'projecting', meaning if no status is specified, the route is assumed to be in the projecting status. 
+   */
+  status: { type: String, enum: ['sent', 'projecting'], default: 'projecting' }, 
 });
 
 module.exports = mongoose.model("ClimbingHistory", climbingHistorySchema);

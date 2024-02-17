@@ -6,6 +6,7 @@ const cors = require("cors");
 // *REQUIRED ROUTES
 const userRoutes = require("./routes/user");
 const routeRoutes = require("./routes/route");
+const climbingHistoryRoutes = require("./routes/climbingHistory")
 
 
 const app = express();
@@ -21,6 +22,7 @@ mongoose.connection.once('open', () => console.log('Now connected to MongoDB Atl
 // *USE ROUTES
 app.use("/users", userRoutes);
 app.use("/routes", routeRoutes);
+app.use("/climbingHistory", climbingHistoryRoutes);
 
 
 if(require.main === module){

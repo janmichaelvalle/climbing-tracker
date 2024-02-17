@@ -18,10 +18,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     require: [true, "Password is required"],
   },
-  userType: {
-    type: String,
-    // values: climber, admin, route-setter
-    default: "climber",
+  isAdmin: {
+    type: Boolean,
+    default: false
   },
   // Array of climbing history objects 
   climbing_history: [
