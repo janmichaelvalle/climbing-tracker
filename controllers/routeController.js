@@ -125,6 +125,7 @@ module.exports.sentRoute = (req, res) => {
         { $push: { climbing_history: savedSent._id } },
         { new: true }
       )
+      // TODO Push user_id to "completed_by" array in routes when a user sends a climb
         .then(() => {
           res
             .status(201)
