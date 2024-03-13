@@ -3,7 +3,6 @@ const ClimbingHistory = require("../models/ClimbingHistory");
 const User = require("../models/User");
 
 // * ADD ROUTE
-
 module.exports.addRoute = (req, res) => {
   let newRoute = new Route({
     grade: req.body.grade,
@@ -110,42 +109,56 @@ module.exports.sentRoute = (req, res) => {
   const routeId = req.params.routeId;
   const userId = req.user.id;
 
+  // Create a new climbing history entry
   let newSend = new ClimbingHistory({
     user: userId,
     route: routeId,
     status: "sent",
   });
-  // Save the climbing history entry in the DB
-  newSend
-    .save()
-    .then((savedSent) => {
-      User.findByIdAndUpdate(
-        userId,
-        // Add the climbing history entry's ID to the climbing_history array
-        { $push: { climbing_history: savedSent._id } },
-        { new: true }
-      )
-      // TODO Push user_id to "completed_by" array in routes when a user sends a climb
-        .then(() => {
-          res
-            .status(201)
-            .send({
-              message: "Congratulations! Route sent!",
-              savedSent: savedSent,
+
+  Route.findById(routeId)
+    .then((foundRoute) => {
+      // Check if route is already sent
+      if (foundRoute && foundRoute.completed_by.includes(userId)) {
+        return res.status(409).send({ message: "Route already sent." });
+      } else {
+        // Save the climbing history entry in the DB
+        return newSend.save()
+          .then((savedSent) => {
+            // Update the user's climbing history array
+            return User.findByIdAndUpdate(
+              userId,
+              { $push: { climbing_history: savedSent._id } },
+              { new: true }
+            )
+            .then(() => {
+              // Push user_id to "completed_by" array in routes when a user sends a climb
+              return Route.findByIdAndUpdate(
+                routeId,
+                { $push: { completed_by: userId } },
+                { new: true }
+              );
+            })
+            .then(() => {
+              res.status(201).send({
+                message: "Congratulations! Route sent!",
+                savedSent: savedSent,
+              });
+            })
+            .catch((updateError) => {
+              console.error("Error updating:", updateError);
+              res.status(500).json({ error: "Error updating" });
             });
-        })
-        .catch((userUpdateError) => {
-          console.error(
-            "Error updating user's climbing history array:",
-            userUpdateError
-          );
-          res
-            .status(500)
-            .json({ error: "Error updating user's climbing history array" });
-        });
+          })
+          .catch((saveError) => {
+            console.error("Error saving climbing history entry:", saveError);
+            res.status(500).json({ error: "Error saving climbing history entry" });
+          });
+      }
     })
-    .catch((saveError) => {
-      console.error("Error saving climbing history entry:", saveError);
-      res.status(500).json({ error: "Error saving climbing history entry" });
+    .catch((error) => {
+      console.error("Error:", error);
+      res.status(500).json({ error: "Error" });
     });
 };
+

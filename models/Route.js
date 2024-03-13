@@ -42,6 +42,16 @@ const routeSchema = new mongoose.Schema({
      type: Date, 
      default: Date.now 
     },
+
+  expected_reset_date: {
+    type: Date,
+    default: () => {
+      // Adds 3 months to the current date
+      const currentDate = new Date();
+      currentDate.setMonth(currentDate.getMonth() + 3);
+      return currentDate;
+    }
+  }
 });
 
 module.exports = mongoose.model("Route", routeSchema);

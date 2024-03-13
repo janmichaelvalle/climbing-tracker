@@ -17,10 +17,10 @@ Epic#1: As a user, I should be able to view all routes
 
 1. As a user, I should view the following information on the route:
     1. Route type: Boulder, Autobelay, Top Role, Lead
-    2. Lane number: C01, C02, L01, Boulder Wall#1, Boulder Wall#2
+    2. Location: C01, C02, L01, Boulder Wall#1, Boulder Wall#2
         
         <aside>
-        💡 A lane can contain multiple routes/problems
+        💡 A location can contain multiple routes/problems
         
         </aside>
         
