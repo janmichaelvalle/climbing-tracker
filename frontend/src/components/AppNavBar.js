@@ -23,7 +23,9 @@ export default function AppNavbar(){
 						{/*The "to" prop is use in place of the "href" prop for providing the URL for the page.*/}
 						{/*The "exect" prop is used to highlight the active NavLink component that matches the URL*/}
 						<Nav.Link as={NavLink} to="/" exact="true">Home</Nav.Link>
-						<Nav.Link as={NavLink} to="/courses" exact="true">Routes</Nav.Link>
+						<Nav.Link as={NavLink} to="/routes" exact="true">Routes</Nav.Link>
+						<Nav.Link as={NavLink} to="/login" exact="true">Login</Nav.Link>
+						<Nav.Link as={NavLink} to="/register" exact="true">Register</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>
