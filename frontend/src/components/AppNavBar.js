@@ -15,7 +15,7 @@ export default function AppNavbar(){
 	return (
 		<Navbar bg="light" expand="lg">
 			<Container fluid>
-				<Navbar.Brand as={Link} to="/">Lala</Navbar.Brand>
+				<Navbar.Brand as={Link} to="/">Climbing Tracker</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav"/>
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="ms-auto">
@@ -24,8 +24,8 @@ export default function AppNavbar(){
 						{/*The "exect" prop is used to highlight the active NavLink component that matches the URL*/}
 						<Nav.Link as={NavLink} to="/" exact="true">Home</Nav.Link>
 						<Nav.Link as={NavLink} to="/routes" exact="true">Routes</Nav.Link>
-						<Nav.Link as={NavLink} to="/login" exact="true">Login</Nav.Link>
-						<Nav.Link as={NavLink} to="/register" exact="true">Register</Nav.Link>
+						{/* <Nav.Link as={NavLink} to="/login" exact="true">Login</Nav.Link> */}
+						{/* <Nav.Link as={NavLink} to="/register" exact="true">Register</Nav.Link> */}
 					</Nav>
 				</Navbar.Collapse>
 			</Container>

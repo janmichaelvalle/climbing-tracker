@@ -53,7 +53,7 @@ function App() {
   return (
     <Router>
       <UserProvider value={{ user, setUser }}>
-        <Container fluid>
+        <Container fluid className="website-container">
           <AppNavbar />
           <Routes>
             <Route path="/" element={<Home />} />
